@@ -99,7 +99,7 @@ builder.Services.AddScoped<Sender>();
         }
     }
 ```
-#### Step 1: config Reciver
+#### Step 2: config Reciver
 - Worker
 ```
     public class Receive
