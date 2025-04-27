@@ -1,4 +1,4 @@
-﻿<h3 align="center">A passionate Backend-Frontend developer from IRAN</h3>
+<h3 align="center">A passionate Backend-Frontend developer from IRAN</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=srtnt&label=Profile%20views&color=0e75b6&style=flat" alt="srtnt" /> </p>
 
