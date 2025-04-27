@@ -415,5 +415,7 @@ builder.Services.AddScoped<Receive>();
 - publish message to more than 1 queue
 - each queue recive anc ACT message seperatly
 
-#### [Code](https://github.com/SRTNT/RabbitMQ/tree/Direct-Exchange-(fanout))
-#### [Github](https://www.rabbitmq.com/tutorials/tutorial-three-dotnet)
+
+#### Source
+###### [Code](https://github.com/SRTNT/RabbitMQ/tree/Direct-Exchange-(fanout))
+###### [Github](https://www.rabbitmq.com/tutorials/tutorial-three-dotnet)
