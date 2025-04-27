@@ -30,17 +30,14 @@ namespace ReciverAPP1
             using var connection = await factory.CreateConnectionAsync();
             using var channel = await connection.CreateChannelAsync();
 
-            #region Create 2 Queue
-            await channel.QueueDeclareAsync(queue: "task_queue",
-                                    durable: true, // For Not Delete if the rabbitmq crash => true
-                                    exclusive: false,
-                                    autoDelete: false,
-                                    arguments: null);
-            await channel.QueueDeclareAsync(queue: "task_queue2",
+            var queueName = "log_queue";
+
+            #region Create Queue
+            await channel.QueueDeclareAsync(queue: queueName,
                                             durable: true, // For Not Delete if the rabbitmq crash => true
                                             exclusive: false,
                                             autoDelete: false,
-                                            arguments: null); 
+                                            arguments: null);
             #endregion
 
             // Control how many message analyze by this consumer
@@ -55,31 +52,10 @@ namespace ReciverAPP1
             var consumer = new AsyncEventingBasicConsumer(channel);
             consumer.ReceivedAsync += async (model, ea) =>
             {
-                // Accessing the queue name
-                var queueName = ((AsyncEventingBasicConsumer)model).Channel.CurrentQueue;
-
                 var body = ea.Body.ToArray();
                 var message = Encoding.UTF8.GetString(body);
-                _logger.LogWarning($"{queueName} - [x] Received {message}");
-
-                await Task.Delay(1000);
-
-                // here channel could also be accessed as ((AsyncEventingBasicConsumer)sender).Channel
-                await channel.BasicAckAsync(deliveryTag: ea.DeliveryTag, multiple: false);
-
-                numberRecive++;
-            };
-            var consumer2 = new AsyncEventingBasicConsumer(channel);
-            consumer2.ReceivedAsync += async (model, ea) =>
-            {
-                // Accessing the queue name
-                var queueName = ((AsyncEventingBasicConsumer)model).Channel.CurrentQueue;
-
-                var body = ea.Body.ToArray();
-                var message = Encoding.UTF8.GetString(body);
-                _logger.LogWarning($"{queueName} - [x] Received {message}");
-
-                await Task.Delay(1000);
+                var routingKey = ea.RoutingKey;
+                Console.WriteLine($"Recive [x] Received '{routingKey}':'{message}'");
 
                 // here channel could also be accessed as ((AsyncEventingBasicConsumer)sender).Channel
                 await channel.BasicAckAsync(deliveryTag: ea.DeliveryTag, multiple: false);
@@ -89,12 +65,9 @@ namespace ReciverAPP1
             #endregion
 
             #region Map Consumer to queue
-            await channel.BasicConsumeAsync(queue: "task_queue",
-                                                autoAck: false,
-                                                consumer: consumer);
-            await channel.BasicConsumeAsync(queue: "task_queue2",
+            await channel.BasicConsumeAsync(queue: queueName,
                                             autoAck: false,
-                                            consumer: consumer2); 
+                                            consumer: consumer);
             #endregion
 
             while (numberRecive < 4)

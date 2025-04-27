@@ -401,6 +401,7 @@ builder.Services.AddScoped<Receive>();
 - [Code](https://github.com/SRTNT/RabbitMQ/tree/Work-Queues)
 - [Github RabbitMQ](https://www.rabbitmq.com/tutorials/tutorial-two-dotnet)
 
+
 ## Direct Exchange - fanout
 #### Step 1: config sender
 - create Exchange
@@ -417,7 +418,27 @@ builder.Services.AddScoped<Receive>();
 - publish message to more than 1 queue
 - each queue recive anc ACT message seperatly
 
-
 #### Source
 - [Code](https://github.com/SRTNT/RabbitMQ/tree/Direct-Exchange-(fanout))
 - [Github RabbitMQ](https://www.rabbitmq.com/tutorials/tutorial-three-dotnet)
+
+
+## Direct Exchange - Direct
+#### Step 1: config sender
+- create Exchange
+- create Queue
+- Map Exchange To Queue With Routing Key
+- Send Message
+
+#### Step 2: config Reciver
+- create Queue
+- create Cunsumer - Show Routing Key with value
+- map cunsumer to queue
+
+#### Points
+- publish message to more than 1 queue
+- each queue recive anc ACT message seperatly
+
+#### Source
+- [Code](https://github.com/SRTNT/RabbitMQ/tree/Route-Exchange-(Direct))
+- [Github RabbitMQ](https://www.rabbitmq.com/tutorials/tutorial-four-dotnet)

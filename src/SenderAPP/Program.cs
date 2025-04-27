@@ -1,5 +1,7 @@
 using SenderAPP;
 
+Console.Title = "Sender";
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

@@ -1,6 +1,8 @@
 using ReciverAPP1;
 using System.Reflection;
 
+Console.Title = "Recive";
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
