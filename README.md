@@ -216,8 +216,9 @@ builder.Services.AddScoped<Receive>();
     }
 ```
 
-#### [Code](https://github.com/SRTNT/RabbitMQ/tree/HelloWorld)
-#### [Github](https://www.rabbitmq.com/tutorials/tutorial-one-dotnet)
+#### Source
+- [Code](https://github.com/SRTNT/RabbitMQ/tree/HelloWorld)
+- [Github](https://www.rabbitmq.com/tutorials/tutorial-one-dotnet)
 
 ## Work Queues
 #### Step 1: config sender
@@ -396,8 +397,9 @@ builder.Services.AddScoped<Receive>();
     }
 ```
 
-#### [Code](https://github.com/SRTNT/RabbitMQ/tree/Work-Queues)
-#### [Github](https://www.rabbitmq.com/tutorials/tutorial-two-dotnet)
+#### Source
+- [Code](https://github.com/SRTNT/RabbitMQ/tree/Work-Queues)
+- [Github](https://www.rabbitmq.com/tutorials/tutorial-two-dotnet)
 
 ## Direct Exchange - fanout
 #### Step 1: config sender
@@ -417,5 +419,5 @@ builder.Services.AddScoped<Receive>();
 
 
 #### Source
-###### [Code](https://github.com/SRTNT/RabbitMQ/tree/Direct-Exchange-(fanout))
-###### [Github](https://www.rabbitmq.com/tutorials/tutorial-three-dotnet)
+- [Code](https://github.com/SRTNT/RabbitMQ/tree/Direct-Exchange-(fanout))
+- [Github](https://www.rabbitmq.com/tutorials/tutorial-three-dotnet)
