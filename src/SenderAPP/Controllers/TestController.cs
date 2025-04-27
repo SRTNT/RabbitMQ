@@ -1,4 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using RabbitMQ.Client;
+using System.Text;
 
 namespace SenderAPP.Controllers
 {
@@ -7,16 +10,20 @@ namespace SenderAPP.Controllers
     public class TestController : ControllerBase
     {
         private readonly ILogger<TestController> _logger;
+        private readonly Sender sender;
 
-        public TestController(ILogger<TestController> logger)
+        public TestController(ILogger<TestController> logger, Sender sender)
         {
             _logger = logger;
+            this.sender = sender;
         }
 
         [HttpGet()]
-        public async Task<IActionResult> Get()
+        [Route("{message}")]
+        public async Task<IActionResult> Get(string message)
         {
-            await Task.Delay(1);
+            await sender.SendData(message);
+
             return Ok();
         }
     }
