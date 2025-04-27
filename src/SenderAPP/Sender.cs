@@ -13,7 +13,7 @@ namespace SenderAPP
             _logger = logger;
         }
 
-        public async Task SendData(string message)
+        public async Task SendData(string message, string severity = "info")
         {
             var factory = new ConnectionFactory
             {
@@ -27,20 +27,18 @@ namespace SenderAPP
             using var connection = await factory.CreateConnectionAsync();
             using var channel = await connection.CreateChannelAsync();
 
+            var exchangeName = "logs";
+            var queueName = "log_queue";
+
             // Create Exchange
-            await channel.ExchangeDeclareAsync(exchange: "logs", type: ExchangeType.Fanout);
+            await channel.ExchangeDeclareAsync(exchange: exchangeName, type: ExchangeType.Direct);
 
             #region Create Queue
-            await channel.QueueDeclareAsync(queue: "task_queue",
-                                    durable: true, // For Not Delete if the rabbitmq crash => true
-                                    exclusive: false,
-                                    autoDelete: false,
-                                    arguments: null);
-            await channel.QueueDeclareAsync(queue: "task_queue2",
+            await channel.QueueDeclareAsync(queue: queueName,
                                             durable: true, // For Not Delete if the rabbitmq crash => true
                                             exclusive: false,
                                             autoDelete: false,
-                                            arguments: null); 
+                                            arguments: null);
             #endregion
 
             var body = Encoding.UTF8.GetBytes(message);
@@ -52,19 +50,18 @@ namespace SenderAPP
             };
 
             #region Map Exchange To Queue
-            await channel.QueueBindAsync(queue: "task_queue", exchange: "logs", routingKey: string.Empty);
-            await channel.QueueBindAsync(queue: "task_queue2", exchange: "logs", routingKey: string.Empty);
+            await channel.QueueBindAsync(queue: queueName, exchange: exchangeName, routingKey: severity);
             #endregion
 
             #region Send Message
-            await channel.BasicPublishAsync(exchange: "logs",
-                                    routingKey: string.Empty,
-                                    mandatory: true, // if the rout key not existed return message to main server
-                                    basicProperties: properties,
-                                    body: body); 
+            await channel.BasicPublishAsync(exchange: exchangeName,
+                                            routingKey: severity,
+                                            mandatory: true, // if the rout key not existed return message to main server
+                                            basicProperties: properties,
+                                            body: body);
             #endregion
 
-            _logger.LogInformation($" [x] Sent {message}");
+            _logger.LogInformation($"Sender [x] Sent {severity} : {message}");
         }
     }
 }
