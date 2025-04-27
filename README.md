@@ -99,6 +99,93 @@ builder.Services.AddScoped<Sender>();
         }
     }
 ```
+#### Step 1: config Reciver
+- Worker
+```
+    public class Receive
+    {
+        private readonly ILogger<Receive> _logger;
 
-- [Code](https://github.com/SRTNT/RabbitMQ/tree/HelloWorld)
-- [Github](https://www.rabbitmq.com/tutorials/tutorial-one-dotnet)
+        public Receive(ILogger<Receive> logger)
+        {
+            _logger = logger;
+        }
+
+        public async Task ReadyForGet()
+        {
+            bool isFinished = false;
+
+            var factory = new ConnectionFactory
+            {
+                HostName = "localhost",
+                Port = 5672,
+                UserName = "sa",
+                Password = "SaeedTNT220",
+                VirtualHost = "/"
+            };
+
+            using var connection = await factory.CreateConnectionAsync();
+            using var channel = await connection.CreateChannelAsync();
+
+            await channel.QueueDeclareAsync(queue: "hello",
+                                            durable: false,
+                                            exclusive: false,
+                                            autoDelete: false,
+                                            arguments: null);
+
+            _logger.LogInformation(" [*] Waiting for messages.");
+
+            var consumer = new AsyncEventingBasicConsumer(channel);
+            consumer.ReceivedAsync += (model, ea) =>
+            {
+                var body = ea.Body.ToArray();
+                var message = Encoding.UTF8.GetString(body);
+                _logger.LogWarning($" [x] Received {message}");
+
+                isFinished = true;
+
+                return Task.CompletedTask;
+            };
+
+            await channel.BasicConsumeAsync(queue: "hello", 
+                                            autoAck: true,
+                                            consumer: consumer);
+
+            while (!isFinished)
+            {
+                await Task.Delay(1000);
+            }
+        }
+    }
+```
+- injection
+```
+builder.Services.AddScoped<Receive>();
+```
+- Action of Controller
+```
+    [ApiController]
+    [Route("[controller]")]
+    public class TestController : ControllerBase
+    {
+        private readonly ILogger<TestController> _logger;
+        private readonly Receive receive;
+
+        public TestController(ILogger<TestController> logger, Receive receive)
+        {
+            _logger = logger;
+            this.receive = receive;
+        }
+
+        [HttpGet()]
+        public async Task<IActionResult> Get()
+        {
+            await receive.ReadyForGet();
+
+            return Ok();
+        }
+    }
+```
+
+#### [Code](https://github.com/SRTNT/RabbitMQ/tree/HelloWorld)
+#### [Github](https://www.rabbitmq.com/tutorials/tutorial-one-dotnet)
