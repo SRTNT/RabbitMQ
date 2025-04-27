@@ -26,3 +26,79 @@
 <p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=srtnt&show_icons=true&locale=en&layout=compact" alt="srtnt" /></p>
 
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=srtnt&show_icons=true&locale=en" alt="srtnt" /></p>
+
+## Hello World
+#### Step 1: config sender
+- Worker
+```
+    public class Sender
+    {
+        private readonly ILogger<Sender> _logger;
+
+        public Sender(ILogger<Sender> logger)
+        {
+            _logger = logger;
+        }
+
+        public async Task SendData(string message)
+        {
+            var factory = new ConnectionFactory
+            {
+                HostName = "localhost",
+                Port = 5672,
+                UserName = "sa",
+                Password = "SaeedTNT220",
+                VirtualHost = "/"
+            };
+
+            using var connection = await factory.CreateConnectionAsync();
+            using var channel = await connection.CreateChannelAsync();
+
+            await channel.QueueDeclareAsync(queue: "hello",
+                                            durable: false,
+                                            exclusive: false,
+                                            autoDelete: false,
+                                            arguments: null);
+
+            var body = Encoding.UTF8.GetBytes(message);
+
+            await channel.BasicPublishAsync(exchange: string.Empty,
+                                            routingKey: "hello",
+                                            body: body);
+
+            _logger.LogInformation($" [x] Sent {message}");
+        }
+    }
+```
+- injection
+```
+builder.Services.AddScoped<Sender>();
+```
+- Action of Controller
+```
+    [ApiController]
+    [Route("[controller]")]
+    public class TestController : ControllerBase
+    {
+        private readonly ILogger<TestController> _logger;
+        private readonly Sender sender;
+
+        public TestController(ILogger<TestController> logger, Sender sender)
+        {
+            _logger = logger;
+            this.sender = sender;
+        }
+
+        [HttpGet()]
+        [Route("{message}")]
+        public async Task<IActionResult> Get(string message)
+        {
+            await sender.SendData(message);
+
+            return Ok();
+        }
+    }
+```
+
+- [Code](https://github.com/SRTNT/RabbitMQ/tree/HelloWorld)
+- [Github](https://www.rabbitmq.com/tutorials/tutorial-one-dotnet)
