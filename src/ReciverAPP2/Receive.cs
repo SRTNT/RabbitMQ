@@ -1,9 +1,9 @@
 using RabbitMQ.Client.Events;
 using RabbitMQ.Client;
 using System.Text;
-using ReciverAPP1.Controllers;
+using ReciverAPP2.Controllers;
 
-namespace ReciverAPP1
+namespace ReciverAPP2
 {
     public class Receive
     {
@@ -32,7 +32,7 @@ namespace ReciverAPP1
 
             var lstQueue = new[]
             {
-                new {QueueName="log_queue1",routingKey="*.image.#"},
+                new {QueueName="log_queue2",routingKey="*.png"},
             };
 
             #region Create Queue
@@ -63,7 +63,7 @@ namespace ReciverAPP1
                 var body = ea.Body.ToArray();
                 var message = Encoding.UTF8.GetString(body);
                 var routingKey = ea.RoutingKey;
-                Console.WriteLine($"Queue 1 [x] Received '{routingKey}':'{message}'");
+                Console.WriteLine($"Queue 2 [x] Received '{routingKey}':'{message}'");
 
                 // here channel could also be accessed as ((AsyncEventingBasicConsumer)sender).Channel
                 await channel.BasicAckAsync(deliveryTag: ea.DeliveryTag, multiple: false);

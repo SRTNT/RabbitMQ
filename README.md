@@ -1,110 +1,119 @@
-<h3 align="center">A passionate Backend-Frontend developer from IRAN</h3>
+<h3 align="center">A Passionate Backend-Frontend Developer from Iran</h3>
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=srtnt&label=Profile%20views&color=0e75b6&style=flat" alt="srtnt" /> </p>
+## Table of Contents
+- [About Me](#about-me)
+- [Connect with Me](#connect-with-me)
+- [Languages and Tools](#languages-and-tools)
+- [GitHub Stats](#github-stats)
+- [Projects Overview](#projects-overview)
+  - [Hello World](#hello-world)
+  - [Work Queues](#work-queues)
+  - [Direct Exchange - Fanout](#direct-exchange---fanout)
+  - [Direct Exchange - Direct](#direct-exchange---direct)
+  - [Conditional Exchange - Topic](#conditional-exchange---topic)
+- [Additional Resources](#additional-resources)
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=srtnt" alt="srtnt" /></a> </p>
-
-<p align="left"> <a href="https://twitter.com/" target="blank"><img src="https://img.shields.io/twitter/follow/?logo=twitter&style=for-the-badge" alt="" /></a> </p>
-
-- 🔭 I’m currently working on [Swagger Test](https://github.com/SRTNT/RabbitMQ)
-
-- 🌱 I’m currently learning **Linux & Docker & Kuber**
-
-- 👨‍💻 All of my projects are available at [https://github.com/SRTNT](https://github.com/SRTNT)
-
-- 💬 Ask me about **C# - Platform Design**
-
-- 📫 How to reach me **s.r.taheri@gmail.com**
-
-<h3 align="left">Connect with me:</h3>
 <p align="left">
+  <img src="https://komarev.com/ghpvc/?username=srtnt&label=Profile%20views&color=0e75b6&style=flat" alt="srtnt" />
 </p>
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg" alt="bash" width="40" height="40"/> </a> <a href="https://www.blender.org/" target="_blank" rel="noreferrer"> <img src="https://download.blender.org/branding/community/blender_community_badge_white.svg" alt="blender" width="40" height="40"/> </a> <a href="https://www.w3schools.com/cs/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" alt="csharp" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://www.docker.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/> </a> <a href="https://dotnet.microsoft.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original-wordmark.svg" alt="dotnet" width="40" height="40"/> </a> <a href="https://www.elastic.co" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/elastic/elastic-icon.svg" alt="elasticsearch" width="40" height="40"/> </a> <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.linux.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> </a> <a href="https://mariadb.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/mariadb/mariadb-icon.svg" alt="mariadb" width="40" height="40"/> </a> <a href="https://www.microsoft.com/en-us/sql-server" target="_blank" rel="noreferrer"> <img src="https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg" alt="mssql" width="40" height="40"/> </a> <a href="https://nextjs.org/" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/nextjs-2.svg" alt="nextjs" width="40" height="40"/> </a> <a href="https://www.nginx.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nginx/nginx-original.svg" alt="nginx" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a> <a href="https://postman.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/> </a> <a href="https://www.rabbitmq.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/rabbitmq/rabbitmq-icon.svg" alt="rabbitMQ" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://redis.io" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original-wordmark.svg" alt="redis" width="40" height="40"/> </a> <a href="https://sass-lang.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="40" height="40"/> </a> <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/> </a> <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a> </p>
-
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=srtnt&show_icons=true&locale=en&layout=compact" alt="srtnt" /></p>
-
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=srtnt&show_icons=true&locale=en" alt="srtnt" /></p>
-
-<h3 align="center">A passionate Backend-Frontend developer from IRAN</h3>
-
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=srtnt&label=Profile%20views&color=0e75b6&style=flat" alt="srtnt" /> </p>
-
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=srtnt" alt="srtnt" /></a> </p>
-
-<p align="left"> <a href="https://twitter.com/" target="blank"><img src="https://img.shields.io/twitter/follow/?logo=twitter&style=for-the-badge" alt="" /></a> </p>
-
-- 🔭 I’m currently working on [Swagger Test](https://github.com/SRTNT/RabbitMQ)
-
-- 🌱 I’m currently learning **Linux & Docker & Kuber**
-
-- 👨‍💻 All of my projects are available at [https://github.com/SRTNT](https://github.com/SRTNT)
-
-- 💬 Ask me about **C# - Platform Design**
-
-- 📫 How to reach me **s.r.taheri@gmail.com**
-
-<h3 align="left">Connect with me:</h3>
 <p align="left">
+  <a href="https://github.com/ryo-ma/github-profile-trophy">
+    <img src="https://github-profile-trophy.vercel.app/?username=srtnt" alt="srtnt" />
+  </a>
 </p>
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg" alt="bash" width="40" height="40"/> </a> <a href="https://www.blender.org/" target="_blank" rel="noreferrer"> <img src="https://download.blender.org/branding/community/blender_community_badge_white.svg" alt="blender" width="40" height="40"/> </a> <a href="https://www.w3schools.com/cs/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" alt="csharp" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://www.docker.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/> </a> <a href="https://dotnet.microsoft.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original-wordmark.svg" alt="dotnet" width="40" height="40"/> </a> <a href="https://www.elastic.co" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/elastic/elastic-icon.svg" alt="elasticsearch" width="40" height="40"/> </a> <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.linux.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> </a> <a href="https://mariadb.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/mariadb/mariadb-icon.svg" alt="mariadb" width="40" height="40"/> </a> <a href="https://www.microsoft.com/en-us/sql-server" target="_blank" rel="noreferrer"> <img src="https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg" alt="mssql" width="40" height="40"/> </a> <a href="https://nextjs.org/" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/nextjs-2.svg" alt="nextjs" width="40" height="40"/> </a> <a href="https://www.nginx.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nginx/nginx-original.svg" alt="nginx" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a> <a href="https://postman.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/> </a> <a href="https://www.rabbitmq.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/rabbitmq/rabbitmq-icon.svg" alt="rabbitMQ" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://redis.io" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original-wordmark.svg" alt="redis" width="40" height="40"/> </a> <a href="https://sass-lang.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="40" height="40"/> </a> <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/> </a> <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a> </p>
+<p align="left">
+  <a href="https://twitter.com/" target="_blank">
+    <img src="https://img.shields.io/twitter/follow/?logo=twitter&style=for-the-badge" alt="Twitter Badge" />
+  </a>
+</p>
 
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=srtnt&show_icons=true&locale=en&layout=compact" alt="srtnt" /></p>
+---
 
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=srtnt&show_icons=true&locale=en" alt="srtnt" /></p>
+### About Me
+- 🔭 **Current Project:** [Swagger Test](https://github.com/SRTNT/RabbitMQ)
+- 🌱 **Learning:** Linux, Docker, Kubernetes
+- 👨‍💻 **Projects:** [My GitHub](https://github.com/SRTNT)
+- 💬 **Ask Me About:** C#, Platform Design
+- 📫 **Contact:** s.r.taheri@gmail.com
 
-## Hello World
-#### Step 1: config sender
-- Worker
-```
-    public class Sender
+---
+
+### Connect with Me
+<p align="left">
+  <!-- Add links to your social media or professional profiles here -->
+</p>
+
+---
+
+### Languages and Tools
+<p align="left">
+  <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noreferrer">
+    <img src="https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg" alt="bash" width="40" height="40"/>
+  </a>
+  <a href="https://www.blender.org/" target="_blank" rel="noreferrer">
+    <img src="https://download.blender.org/branding/community/blender_community_badge_white.svg" alt="blender" width="40" height="40"/>
+  </a>
+  <a href="https://www.w3schools.com/cs/" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" alt="csharp" width="40" height="40"/>
+  </a>
+  <!-- Add other tools here -->
+</p>
+
+---
+
+### GitHub Stats
+<p align="left">
+  <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=srtnt&show_icons=true&locale=en&layout=compact" alt="Top Languages" />
+</p>
+<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=srtnt&show_icons=true&locale=en" alt="GitHub Stats" /></p>
+
+---
+
+## Projects Overview
+
+### Hello World
+#### Step 1: Configure Sender
+```csharp
+public class Sender
+{
+    private readonly ILogger<Sender> _logger;
+
+    public Sender(ILogger<Sender> logger)
     {
-        private readonly ILogger<Sender> _logger;
-
-        public Sender(ILogger<Sender> logger)
-        {
-            _logger = logger;
-        }
-
-        public async Task SendData(string message)
-        {
-            var factory = new ConnectionFactory
-            {
-                HostName = "localhost",
-                Port = 5672,
-                UserName = "sa",
-                Password = "SaeedTNT220",
-                VirtualHost = "/"
-            };
-
-            using var connection = await factory.CreateConnectionAsync();
-            using var channel = await connection.CreateChannelAsync();
-
-            await channel.QueueDeclareAsync(queue: "hello",
-                                            durable: false,
-                                            exclusive: false,
-                                            autoDelete: false,
-                                            arguments: null);
-
-            var body = Encoding.UTF8.GetBytes(message);
-
-            await channel.BasicPublishAsync(exchange: string.Empty,
-                                            routingKey: "hello",
-                                            body: body);
-
-            _logger.LogInformation($" [x] Sent {message}");
-        }
+        _logger = logger;
     }
+
+    public async Task SendData(string message)
+    {
+        var factory = new ConnectionFactory
+        {
+            HostName = "localhost",
+            Port = 5672,
+            UserName = "sa",
+            Password = "SaeedTNT220",
+            VirtualHost = "/"
+        };
+
+        using var connection = await factory.CreateConnectionAsync();
+        using var channel = await connection.CreateChannelAsync();
+
+        await channel.QueueDeclareAsync(queue: "hello", durable: false, exclusive: false, autoDelete: false, arguments: null);
+        
+        var body = Encoding.UTF8.GetBytes(message);
+        await channel.BasicPublishAsync(exchange: string.Empty, routingKey: "hello", body: body);
+        
+        _logger.LogInformation($" [x] Sent {message}");
+    }
+}
 ```
-- injection
-```
+- Dependency Injection:
+```csharp
 builder.Services.AddScoped<Sender>();
 ```
-- Action of Controller
-```
+- Controller Action:
+```csharp
     [ApiController]
     [Route("[controller]")]
     public class TestController : ControllerBase
@@ -128,9 +137,9 @@ builder.Services.AddScoped<Sender>();
         }
     }
 ```
-#### Step 2: config Reciver
-- Worker
-```
+#### Step 2: Configure Receiver
+- Worker:
+```csharp
     public class Receive
     {
         private readonly ILogger<Receive> _logger;
@@ -187,12 +196,12 @@ builder.Services.AddScoped<Sender>();
         }
     }
 ```
-- injection
-```
+- Dependency Injection:
+```csharp
 builder.Services.AddScoped<Receive>();
 ```
-- Action of Controller
-```
+- Controller Action:
+```csharp
     [ApiController]
     [Route("[controller]")]
     public class TestController : ControllerBase
@@ -216,12 +225,12 @@ builder.Services.AddScoped<Receive>();
     }
 ```
 
-#### Source
+#### Source Code
 - [Code](https://github.com/SRTNT/RabbitMQ/tree/HelloWorld)
-- [Github RabbitMQ](https://www.rabbitmq.com/tutorials/tutorial-one-dotnet)
+- [RabbitMQ Documentation](https://www.rabbitmq.com/tutorials/tutorial-one-dotnet)
 
-## Work Queues
-#### Step 1: config sender
+### Work Queues
+#### Step 1: Configure sender
 - Worker
 ```
     public class Sender
@@ -271,11 +280,11 @@ builder.Services.AddScoped<Receive>();
         }
     }
 ```
-- injection
+- Dependency Injection:
 ```
 builder.Services.AddScoped<Sender>();
 ```
-- Action of Controller
+- Controller Action:
 ```
     [ApiController]
     [Route("[controller]")]
@@ -300,7 +309,7 @@ builder.Services.AddScoped<Sender>();
         }
     }
 ```
-#### Step 2: config Reciver
+#### Step 2: Configure Reciver
 - Worker
 ```
     public class Receive
@@ -368,11 +377,11 @@ builder.Services.AddScoped<Sender>();
         }
     }
 ```
-- injection
+- Dependency Injection:
 ```
 builder.Services.AddScoped<Receive>();
 ```
-- Action of Controller
+- Controller Action:
 ```
     [ApiController]
     [Route("[controller]")]
@@ -399,17 +408,17 @@ builder.Services.AddScoped<Receive>();
 
 #### Source
 - [Code](https://github.com/SRTNT/RabbitMQ/tree/Work-Queues)
-- [Github RabbitMQ](https://www.rabbitmq.com/tutorials/tutorial-two-dotnet)
+- [RabbitMQ Documentation](https://www.rabbitmq.com/tutorials/tutorial-two-dotnet)
 
 
-## Direct Exchange - fanout
-#### Step 1: config sender
+### Direct Exchange - Fanout
+#### Step 1: Configure sender
 - create Exchange
 - create Queue
 - Map Exchange To Queue
 - Send Message
 
-#### Step 2: config Reciver
+#### Step 2: Configure Reciver
 - create Queue
 - create Cunsumer
 - map cunsumer to queue
@@ -420,17 +429,17 @@ builder.Services.AddScoped<Receive>();
 
 #### Source
 - [Code](https://github.com/SRTNT/RabbitMQ/tree/Direct-Exchange-(fanout))
-- [Github RabbitMQ](https://www.rabbitmq.com/tutorials/tutorial-three-dotnet)
+- [RabbitMQ Documentation](https://www.rabbitmq.com/tutorials/tutorial-three-dotnet)
 
 
-## Direct Exchange - Direct
-#### Step 1: config sender
+### Direct Exchange - Direct
+#### Step 1: Configure sender
 - create Exchange
 - create Queue
 - Map Exchange To Queue With Routing Key
 - Send Message
 
-#### Step 2: config Reciver
+#### Step 2: Configure Reciver
 - create Queue
 - create Cunsumer - Show Routing Key with value
 - map cunsumer to queue
@@ -438,7 +447,34 @@ builder.Services.AddScoped<Receive>();
 #### Points
 - publish message to more than 1 queue
 - each queue recive anc ACT message seperatly
+- you can configure connection between Exchange and Queue with in reciver in place of sender
 
 #### Source
 - [Code](https://github.com/SRTNT/RabbitMQ/tree/Route-Exchange-(Direct))
-- [Github RabbitMQ](https://www.rabbitmq.com/tutorials/tutorial-four-dotnet)
+- [RabbitMQ Documentation](https://www.rabbitmq.com/tutorials/tutorial-four-dotnet)
+
+
+### Conditional Exchange - Topic
+#### Step 1: Configure sender
+- create Exchange
+- create 3 Queue
+- Map Exchange To Queue With Routing Key with deference value
+    - '*.image.#'
+    - '#.saeed.#'
+    - '*.png'
+- Send Message
+
+#### Step 2: Configure Reciver
+- create Queue in each App
+- create Cunsumer - Show Routing Key with value
+- map cunsumer to queue
+
+#### Points
+- '*' (star) can substitute for exactly one word.
+- '#' (hash) can substitute for zero or more words.
+- each queue recive anc ACT message seperatly
+- you can configure connection between Exchange and Queue with in reciver in place of sender
+
+#### Source
+- [Code](https://github.com/SRTNT/RabbitMQ/tree/Topics-Exchange-(Topics))
+- [RabbitMQ Documentation](https://www.rabbitmq.com/tutorials/tutorial-five-dotnet#topic-exchange)

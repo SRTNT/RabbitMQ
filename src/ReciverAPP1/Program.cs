@@ -1,7 +1,7 @@
 using ReciverAPP1;
 using System.Reflection;
 
-Console.Title = "Recive";
+Console.Title = "Recive 1";
 
 var builder = WebApplication.CreateBuilder(args);
 
