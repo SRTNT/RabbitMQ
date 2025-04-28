@@ -7,16 +7,19 @@ namespace ReciverAPP2.Controllers
     public class TestController : ControllerBase
     {
         private readonly ILogger<TestController> _logger;
+        private readonly Receive receive;
 
-        public TestController(ILogger<TestController> logger)
+        public TestController(ILogger<TestController> logger, Receive receive)
         {
             _logger = logger;
+            this.receive = receive;
         }
 
         [HttpGet()]
         public async Task<IActionResult> Get()
         {
-            await Task.Delay(1);
+            await receive.ReadyForGet();
+
             return Ok();
         }
     }
