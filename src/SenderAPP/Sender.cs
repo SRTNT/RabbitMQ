@@ -1,11 +1,15 @@
-using RabbitMQ.Client.Events;
+﻿using RabbitMQ.Client.Events;
 using RabbitMQ.Client;
+using System.Collections.Concurrent;
 using System.Text;
+using System.Net.Sockets;
 
 namespace SenderAPP
 {
-    public class Sender
+    public class Sender : IAsyncDisposable
     {
+        bool getResult = false;
+
         private readonly ILogger<Sender> _logger;
 
         public Sender(ILogger<Sender> logger)
@@ -13,7 +17,16 @@ namespace SenderAPP
             _logger = logger;
         }
 
-        public async Task SendData(string message, string key = "s.saeed.e")
+        private const string QUEUE_NAME = "rpc_queue";
+
+        private string CorrelationId = "";
+        private string result = "";
+
+        private IConnection? _connection;
+        private IChannel? _channel;
+        private string? _replyQueueName;
+
+        public async Task<string> SendMessage(string message)
         {
             var factory = new ConnectionFactory
             {
@@ -24,58 +37,89 @@ namespace SenderAPP
                 VirtualHost = "/"
             };
 
-            using var connection = await factory.CreateConnectionAsync();
-            using var channel = await connection.CreateChannelAsync();
+            _connection = await factory.CreateConnectionAsync();
+            _channel = await _connection.CreateChannelAsync();
 
-            var exchangeName = "logs";
+            await MakeReadyCallBack();
 
-            var lstQueue = new[]
+            await SendMessageToReciver(message);
+
+            while (!getResult)
             {
-                new {QueueName="log_queue1",routingKey="*.image.#"},
-                new {QueueName="log_queue2",routingKey="*.png"},
-                new {QueueName="log_queue3",routingKey="#.saeed.#"},
-            };
-
-            // Create Exchange
-            await channel.ExchangeDeclareAsync(exchange: exchangeName, type: ExchangeType.Topic);
-
-            #region Create Queue
-
-            foreach (var queue in lstQueue)
-            {
-                await channel.QueueDeclareAsync(queue: queue.QueueName,
-                                                durable: true, // For Not Delete if the rabbitmq crash => true
-                                                exclusive: false,
-                                                autoDelete: false,
-                                                arguments: null);
+                await Task.Delay(1000);
             }
 
+            return result;
+        }
+
+        #region Make Ready for result
+        private async Task MakeReadyCallBack()
+        {
+            // declare a server-named queue - temp queue
+            var queueDeclareResult = await _channel.QueueDeclareAsync();
+
+            _replyQueueName = queueDeclareResult.QueueName;
+
+            #region Create Cunsumer
+            var consumer = new AsyncEventingBasicConsumer(_channel);
+
+            consumer.ReceivedAsync += (model, ea) =>
+            {
+                string? correlationId = ea.BasicProperties.CorrelationId;
+                result = "";
+
+                if (false == string.IsNullOrEmpty(correlationId))
+                {
+                    if (this.CorrelationId == correlationId)
+                    {
+                        var body = ea.Body.ToArray();
+                        result = Encoding.UTF8.GetString(body);
+                    }
+                }
+
+                _logger.LogWarning($"Get Result: {result}");
+                getResult = true;
+
+                return Task.CompletedTask;
+            };
             #endregion
 
-            var body = Encoding.UTF8.GetBytes(message);
-            var properties = new BasicProperties
+            await _channel.BasicConsumeAsync(queue: _replyQueueName,
+                                             autoAck: true,
+                                             consumer: consumer);
+        }
+        #endregion
+
+        #region Send Message
+        private async Task SendMessageToReciver(string message, CancellationToken cancellationToken = default)
+        {
+            CorrelationId = Guid.NewGuid().ToString();
+            var props = new BasicProperties
             {
-                Persistent = true // if the server has crash:
-                                  // true:  keep message for next run
-                                  // false: delete message
+                CorrelationId = CorrelationId,
+                ReplyTo = _replyQueueName
             };
 
-            #region Map Exchange To Queue
-            foreach (var queue in lstQueue)
+            var messageBytes = Encoding.UTF8.GetBytes(message);
+            await _channel.BasicPublishAsync(exchange: string.Empty,
+                                             routingKey: QUEUE_NAME,
+                                             mandatory: true,
+                                             basicProperties: props,
+                                             body: messageBytes);
+        }
+        #endregion
+
+        public async ValueTask DisposeAsync()
+        {
+            if (_channel is not null)
             {
-                await channel.QueueBindAsync(queue: queue.QueueName, exchange: exchangeName, routingKey: queue.routingKey);
+                await _channel.CloseAsync();
             }
-            #endregion
 
-            #region Send Message
-            await channel.BasicPublishAsync(exchange: exchangeName,
-                                            routingKey: key,
-                                            mandatory: true, // if the rout key not existed return message to main server
-                                            basicProperties: properties,
-                                            body: body);
-            #endregion
-
-            _logger.LogInformation($"Sender [x] Sent {key} : {message}");
+            if (_connection is not null)
+            {
+                await _connection.CloseAsync();
+            }
         }
     }
 }

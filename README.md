@@ -478,3 +478,21 @@ builder.Services.AddScoped<Receive>();
 #### Source
 - [Code](https://github.com/SRTNT/RabbitMQ/tree/Topics-Exchange-(Topics))
 - [RabbitMQ Documentation](https://www.rabbitmq.com/tutorials/tutorial-five-dotnet#topic-exchange)
+
+
+### remote Procedure Call - RPC
+#### Step 1: Configure sender
+- create Main Queue for send Request
+- create Callback Queue for get Response
+- create correlation id for check result id
+- Send Message with call back and correlation id
+
+#### Step 2: Configure Reciver
+- create Main Queue for send Request
+- after get message from Main Queue
+    - execute function
+    - return result to Callback Queue with correlation id
+
+#### Source
+- [Code](https://github.com/SRTNT/RabbitMQ/tree/Remote-Procedure-Call-(RPC))
+- [RabbitMQ Documentation](https://www.rabbitmq.com/tutorials/tutorial-six-dotnet)

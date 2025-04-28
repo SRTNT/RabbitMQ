@@ -16,7 +16,7 @@ namespace ReciverAPP1
 
         public async Task ReadyForGet()
         {
-            int numberRecive = 0;
+            const string QUEUE_NAME = "rpc_queue";
 
             var factory = new ConnectionFactory
             {
@@ -30,61 +30,84 @@ namespace ReciverAPP1
             using var connection = await factory.CreateConnectionAsync();
             using var channel = await connection.CreateChannelAsync();
 
-            var lstQueue = new[]
-            {
-                new {QueueName="log_queue1",routingKey="*.image.#"},
-            };
+            await channel.QueueDeclareAsync(queue: QUEUE_NAME,
+                                            durable: false,
+                                            exclusive: false,
+                                            autoDelete: false,
+                                            arguments: null);
 
-            #region Create Queue
+            await channel.BasicQosAsync(prefetchSize: 0,
+                                        prefetchCount: 1,
+                                        global: false);
 
-            foreach (var queue in lstQueue)
-            {
-                await channel.QueueDeclareAsync(queue: queue.QueueName,
-                                                durable: true, // For Not Delete if the rabbitmq crash => true
-                                                exclusive: false,
-                                                autoDelete: false,
-                                                arguments: null);
-            }
+            int numberRecive = 0;
 
-            #endregion
-
-            // Control how many message analyze by this consumer
-            await channel.BasicQosAsync(prefetchSize: 0, // Size of message in byte - 0 = no limit 
-                                        prefetchCount: 1, // number of message that send to consumer for analyze
-                                        global: false); // true => all connect consumer get this config
-                                                        // false => just this consumer has this config
-
-            _logger.LogInformation(" [*] Waiting for messages.");
-
-            #region Create Cunsumer
+            #region Consumer
             var consumer = new AsyncEventingBasicConsumer(channel);
-            consumer.ReceivedAsync += async (model, ea) =>
+            consumer.ReceivedAsync += async (object sender, BasicDeliverEventArgs ea) =>
             {
-                var body = ea.Body.ToArray();
-                var message = Encoding.UTF8.GetString(body);
-                var routingKey = ea.RoutingKey;
-                Console.WriteLine($"Queue 1 [x] Received '{routingKey}':'{message}'");
+                AsyncEventingBasicConsumer cons = (AsyncEventingBasicConsumer)sender;
+                IChannel ch = cons.Channel;
+                string response = string.Empty;
 
-                // here channel could also be accessed as ((AsyncEventingBasicConsumer)sender).Channel
-                await channel.BasicAckAsync(deliveryTag: ea.DeliveryTag, multiple: false);
+                byte[] body = ea.Body.ToArray();
 
-                numberRecive++;
+                try
+                {
+                    var message = Encoding.UTF8.GetString(body);
+                    int n = int.Parse(message);
+                    _logger.LogInformation($" [.] message: {message}");
+                    response = Fib(n).ToString();
+                }
+                catch (Exception e)
+                {
+                    _logger.LogError($" [.] {e.Message}");
+                    response = string.Empty;
+                }
+                finally
+                {
+                    numberRecive++;
+
+                    // return result to client
+                    var replyProps = new BasicProperties
+                    { CorrelationId = ea.BasicProperties.CorrelationId };
+
+                    var responseBytes = Encoding.UTF8.GetBytes(response);
+                    await ch.BasicPublishAsync(exchange: string.Empty,
+                                               routingKey: ea.BasicProperties.ReplyTo!,
+                                               mandatory: true,
+                                               basicProperties: replyProps,
+                                               body: responseBytes);
+
+                    _logger.LogWarning($" [x] Send Result: {response} to {ea.BasicProperties.ReplyTo}");
+                    await ch.BasicAckAsync(deliveryTag: ea.DeliveryTag, multiple: false);
+                }
             };
             #endregion
 
-            #region Map Consumer to queue
-            foreach (var queue in lstQueue)
-            {
-                await channel.BasicConsumeAsync(queue: queue.QueueName,
-                                                autoAck: false,
-                                                consumer: consumer);
-            }
-            #endregion
+            await channel.BasicConsumeAsync(QUEUE_NAME, false, consumer);
 
-            while (numberRecive < 4)
+            _logger.LogInformation("Ready For Get Message ........................");
+
+            // Assumes only valid positive integer input.
+            // Don't expect this one to work for big numbers,
+            // and it's probably the slowest recursive implementation possible.
+            static int Fib(int n)
+            {
+                if (n is 0 or 1)
+                {
+                    return n;
+                }
+
+                return Fib(n - 1) + Fib(n - 2);
+            }
+
+            while (numberRecive < 10)
             {
                 await Task.Delay(1000);
             }
+
+            _logger.LogCritical("Stop Get Message ........................");
         }
     }
 }

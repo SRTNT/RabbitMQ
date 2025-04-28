@@ -19,10 +19,10 @@ namespace SenderAPP.Controllers
         }
 
         [HttpGet()]
-        [Route("{message}/{severity}")]
-        public async Task<IActionResult> Get(string message, string severity)
+        [Route("{message}")]
+        public async Task<IActionResult> Get(string message)
         {
-            await sender.SendData(message, severity);
+            await sender.SendMessage(message);
 
             return Ok();
         }
