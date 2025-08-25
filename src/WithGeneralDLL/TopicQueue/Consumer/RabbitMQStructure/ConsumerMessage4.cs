@@ -22,11 +22,11 @@ namespace Consumer.RabbitMQStructure
             routingKey = "orange.#"
         };
 
-        public override Func<(string data, string routeKey, IReadOnlyBasicProperties propsFromSender, BasicDeliverEventArgs e), Task<string>> AfterReceiveData => (e) =>
+        public override Task<string> AfterReceiveData(string data, BasicDeliverEventArgs e)
         {
             var v = queueData.name + $"({queueData.routingKey}): " + e;
             logger.LogInformation(v);
             return Task.FromResult(string.Empty);
-        };
+        }
     }
 }
